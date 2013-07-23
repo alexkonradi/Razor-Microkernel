@@ -226,7 +226,7 @@ cp -p usr/share/udhcpc/dhcp_mk_config.script tmp-build-dir/usr/share/udhcpc
 # create copies of the files from this project that will be placed
 # into the /usr/local/bin directory in the Razor Microkernel ISO
 mkdir -p tmp-build-dir/usr/local/bin
-cp -p rz_mk_*.rb tmp-build-dir/usr/local/bin
+cp -p rz_mk_scripts/bin/rz_mk_*.rb tmp-build-dir/usr/local/bin
 
 # create copies of the files from this project that will be placed
 # into the /usr/local/lib/ruby/1.8/razor_microkernel directory in the Razor

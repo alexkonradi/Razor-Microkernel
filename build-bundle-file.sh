@@ -290,7 +290,7 @@ for file in `cat $BUILTIN_LIST`; do
         wget $WGET_V -P tmp-build-dir/tmp/builtin/optional $TCL_MIRROR_URI/$file
         wget $WGET_V -P tmp-build-dir/tmp/builtin/optional $TCL_MIRROR_URI/$file.md5.txt
         wget $WGET_V -P tmp-build-dir/tmp/builtin/optional $TCL_MIRROR_URI/$file.dep
-        echo $file >> tmp-build-dir/tmp/builtin/onboot.lst
+        echo `basename $file` >> tmp-build-dir/tmp/builtin/onboot.lst
     elif [ $BUNDLE_TYPE = 'prod' ] && [ -f tmp-build-dir/tmp/builtin/optional/$file ]
     then
         rm tmp-build-dir/tmp/builtin/optional/$file
@@ -302,7 +302,7 @@ for file in `cat $BUILTIN_LIST`; do
     echo "Installing .deb package as builtin: $PKGNAME"
     ./bin/download-deb-pkg --list-file "./tmp/dpkg-package-list" --mirror-url "$DEB_MIRROR_URL" --output-dir ./tmp/ $PKGNAME
     ./bin/deb2tcz.sh ./tmp/$PKGNAME.deb tmp-build-dir/tmp/builtin/optional/$PKGNAME.tcz
-    echo $PKGNAME.tcz >> tmp-build-dir/tmp/builtin/onboot.lst
+    echo `basename $PKGNAME.tcz` >> tmp-build-dir/tmp/builtin/onboot.lst
   fi
 done
 
